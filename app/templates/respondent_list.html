@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Respondent list {% endblock %}
+{% block content %}
+    <h2>Respondents</h2>
+    {% for respondent in object_list %}
+        <div class="container">
+            <div class="row">
+                <h3>
+                    <a href="{% url 'view_respondent' respondent.id %}">{{ respondent.first_name }} {{ respondent.middle_name }}</a>
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="{{ respondent.profile_photo.url }}" style="max-width:100%">
+                </div>
+            <div class="col">
+                <div class="row">
+                    {{ respondent.first_name }} {{ respondent.middle_name }} {{ respondent.last_name }}
+                </div>
+                <div class="row">
+                    <div class="col">Цвет волос:</div>
+                    <div class="col">{{ respondent.hair_color }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Вес:</div>
+                    <div class="col">{{ respondent.weight }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Любимое животное:</div>
+                    <div class="col">{{ respondent.favorite_animal }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Есть домашнее животное</div>
+                    <div class="col">{{ respondent.has_pet }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

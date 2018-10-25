@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Respondent{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h2>
+                {{ object.first_name }} {{ object.middle_name }}
+            </h2>
+        </div>
+        <div class="row">
+                <div class="col">
+                    <img src="{{ object.profile_photo.url }}" style="max-width:100%">
+                </div>
+            <div class="col">
+                <div class="row">
+                    {{ object.first_name }} {{ object.middle_name }} {{ object.last_name }}
+                </div>
+                <div class="row">
+                    <div class="col">Цвет волос:</div>
+                    <div class="col">{{ object.hair_color }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Вес:</div>
+                    <div class="col">{{ object.weight }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Любимое животное:</div>
+                    <div class="col">{{ object.favorite_animal }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Есть домашнее животное</div>
+                    <div class="col">{{ object.has_pet }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
